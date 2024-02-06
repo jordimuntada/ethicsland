@@ -1,0 +1,219 @@
+/*body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+article {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#header-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%; /* Adjust as needed */
+/*}
+
+#top-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+#top-menu li {
+    float: left;
+}
+
+#top-menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#top-menu li a:hover {
+    background-color: #111;
+}
+
+#subscription-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#subscription-form input[type="email"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px;
+}
+
+#subscription-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+*/
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* A simple and elegant font */
+    line-height: 1.6;
+    color: #333; /* Subtle text color */
+    background-color: #fff; /* Clean background color */
+    max-width: 800px; /* Max width for readability */
+    margin: auto; /* Center the content */
+    padding: 20px; /* Padding around the content */
+}
+
+header {
+    text-align: center; /* Center the content in the header */
+    margin-bottom: 40px; /* Space below the header */
+}
+
+header img {
+    max-width: 150px; /* Adjust the logo size */
+    height: auto; /* Keep the aspect ratio of the logo */
+    margin-top: 20px; /* Space above the logo */
+}
+
+nav {
+    text-align: center; /* Center the navigation menu */
+    margin-bottom: 30px; /* Space below the navigation menu */
+}
+
+nav a {
+    margin: 0 10px; /* Spacing between navigation links */
+    text-decoration: none; /* Remove underline from links */
+    color: #007bff; /* Color for the links */
+}
+
+article {
+    margin-bottom: 30px; /* Space between articles */
+    padding: 20px; /* Padding inside articles */
+    border-bottom: 1px solid #eee; /* Border at the bottom of each article */
+}
+
+article h2 {
+    font-size: 24px; /* Size of the article titles */
+    color: #333; /* Color of the article titles */
+    margin-bottom: 20px; /* Space below the article titles */
+}
+
+article p {
+    font-size: 18px; /* Size of the article content */
+    margin-bottom: 20px; /* Space between paragraphs */
+}
+
+iframe {
+    display: block; /* Ensure the iframe is a block element */
+    width: 100%; /* Full width */
+    max-width: 480px; /* Max width of the iframe */
+    height: 320px; /* Height of the iframe */
+    margin: 30px auto; /* Center the iframe and add margin around it */
+    border: 1px solid #EEE; /* Border for the iframe */
+}
+
+/* Additional Styles as needed */
+/* Existing CSS... */
+
+.article-index {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: light black; /*#007bff;*/
+}
+
+.article-index h2 {
+    margin-top: 0;
+}
+
+#indexList li {
+    list-style-type: none;
+}
+
+#indexList a {
+    text-decoration: none;
+    color: gray; /*#007bff;*/
+}
+
+#indexList a:hover {
+    text-decoration: underline;
+} 
+
+/**********************/
+
+/* Footer CSS to complement your existing body style */
+
+footer {
+    background-color: #fff; /* White background, consistent with the body */
+    color: #333; /* Dark grey text, matching the body text color */
+    padding: 20px; /* Padding for spacing */
+    text-align: center; /* Centered text for a clean layout */
+    border-top: 1px solid #eee; /* Light grey top border for a subtle separation */
+    margin-top: 30px; /* Space above the footer */
+}
+
+.footer-container {
+    max-width: 800px; /* Aligning with the body's max width */
+    margin: auto; /* Centering the container */
+}
+
+.footer-section {
+    margin-bottom: 20px; /* Spacing between the sections */
+}
+
+.footer-section h3 {
+    color: #333 /* #007bff; */ /* Blue color for headings, similar to your nav links */
+    margin-bottom: 10px; /* Space below the headings */
+    font-size: 20px; /* Font size for visibility */
+}
+
+.footer-section p {
+    font-size: 16px; /* Slightly smaller font size than body text */
+    margin-bottom: 10px; /* Space below each paragraph */
+    color: #555; /* Slightly lighter grey for less emphasis */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    .footer-container {
+        width: 100%; /* Full width for smaller screens */
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+}
+
+/* Code for Share button */
+#shareButtonContainer {
+    position: fixed;
+    top: 20px;   /* Distance from bottom */
+    right: 20px;    /* Distance from right */
+    z-index: 1000;  /* Ensures the button stays above other elements */
+}
+
+#shareButtonContainer button {
+    /* Style your button here */
+    padding: 10px;
+    background-color: black; /* blue; */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,16 +1,18 @@
 {
-  "name": "ethics_land",
+  "name": "ethics.land",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "express-sitemap-xml": "^3.0.1"
+    "express-sitemap-xml": "^3.0.1",
+    "glob": "^10.3.10",
+    "sitemap": "^7.1.1"
   }
 }
