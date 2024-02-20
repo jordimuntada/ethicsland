@@ -4,6 +4,7 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 const fs = require('fs').promises;
 
+require('dotenv').config();
 
 const port = 3000;
 const expressSitemapXml = require('express-sitemap-xml');
@@ -25,14 +26,31 @@ app.use(bodyParser.json());
 app.post('/send-sms', async (req, res) => {
     const url = "https://api.gateway360.com/api/3.0/sms/send";
     const data = req.body; // Assuming the body of the request to your server contains the data for the SMS API
-
+    const now = new Date();
+    const sendAt = now.toISOString().replace('T', ' ').substring(0, 19);
     try {
         const response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify({
+                "api_key": process.env.API_KEY_SMSPUBLI, // Use the API key from environment variables
+                "report_url": "http://ethics.land/callback/script",
+                "concat": 1,
+                "messages": [
+                    {
+                        "from": "ETHICS LAND",
+                        "to": "0034626381615",
+                        "text": `Hi George, That's a new subscriber's email: ${data.email}`,
+                        "send_at": sendAt
+                    }
+                ]
+            }),
+            
+            
+            
+            //JSON.stringify(data),
         });
 
         const responseData = await response.json();
