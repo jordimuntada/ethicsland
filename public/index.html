@@ -29,14 +29,29 @@
                 alert('Your browser does not support the share API. Please copy the URL manually.');
             }
         }
+        function redirectToNewsletter() {
+            // Construct the URL for the newsletter page
+            var newsletterUrl = 'sections/newsletter.html';
+
+            // Redirect the user to the newsletter page
+            window.location.href = newsletterUrl;
+        }
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const articles = [
-                { title: "The Ethical Implications of Eating Meat", filename: "The_Ethical_Implications_of_Eating_Meat" },
-                { title: "The Reality of Factory Farming", filename: "The_Reality_of_Factory_Farming" },
-                // Add more articles as needed
-            ];
+            { title: "Ethics on Our Plates: A Philosophical Examination of Our Food Choices", filename: "ethics-on-our-plates-a-philosophical-examination-of-our-food-choices" },
+            { title: "Mi Respuesta a un Comentario: El Contexto Cambia la Dieta", filename: "Mi_respuesta_a_un_comentario_El_contexto_cambia_la_dieta" },
+            { title: "The Paradox of Choice: Navigating the Maze of Cognitive Dissonance", filename: "the-paradox-of-choice-navigating-the-maze-of-cognitive-dissonance" },
+            { title: "The Four Ns: The Paradox of Consuming Animals and Its Ethical Reflection", filename: "The_Four_Ns_The_Paradox_of_Consuming_Animals_and_Its_Ethical_Reflection" },
+            { title: "Reconsidering the Trend of Embracing Ancestral Lifestyles: A Call for Moral Values", filename: "reconsidering-ancestral-lifestyles" },
+            { title: "Pythagoras and Plutarch: Philosophical Perspectives on Animals and Vegetarianism", filename: "pythagoras-plutarch-vegetarianism" },
+            { title: "From Survival to Stress: The Evolution of Bad News and Its Impact on Modern Minds", filename: "evolution-of-bad-news-impact" },
+            { title: "The Future of Meat: A Reflection on Insect-Based Alternatives", filename: "future-of-meat-insect-based-alternatives" },
+            { title: "Firefighters For The Animals: They Don’t Rescue Plants", filename: "firefighters-animals-not-plants" },
+            { title: "The Paradox of Choice: Navigating the Maze of Cognitive Dissonance", filename: "paradox-of-choice-cognitive-dissonance" },
+            // Add more articles as needed
+        ];
             const indexList = document.getElementById('indexList');
 
             articles.forEach(article => {
@@ -54,30 +69,63 @@
     <div id="shareButtonContainer">
         <button onclick="shareContent()">Share</button>
     </div>
+    <div id="NewsletterButtonContainer">
+        <button onclick="redirectToNewsletter()">Newsletter</button>
+    </div>
+
     
     <header>
+    <!-- 
         <div id="articleIndex" class="article-index">
             <h2>Articles</h2>
             <ul id="indexList"></ul>
         </div>
+
+    -->
+<!--      
+    <aside id="articleIndex" class="article-index">
+            <h2>Articles</h2>
+            <ul id="indexList"></ul>
+    </aside>
+-->
         <div class="header-description">
             <h1>Exploring Ethical Living</h1>
             <p>Delving into the World of Animal Rights and Environmental Sustainability</p>
             <p><strong>Ethics Land</strong> is a web blog dedicated to uncovering the truth behind animal exploitation and enlightening readers about the ethical considerations surrounding animal consumption.</p>
         </div>
-        <img src="/images/logo.png" alt="Ethics Land logo" id="header-logo">
+        <!--  <img src="/images/logo.png" alt="Ethics Land logo" id="header-logo"> -->
     </header>
     
     <nav>
         <!-- Navigation menu here -->
     </nav>
     
-    <article>
-        <!-- Article content here -->
-    </article>
+    <div id="articles">
+        
+    </div>
     
     <footer>
         <p>&copy; 2024 Ethics Land. All rights reserved.</p>
     </footer>
+    <script>
+        async function loadArticles() {
+            try {
+                const response = await fetch('/api/articles');
+                const articles = await response.json();
+                
+                const container = document.getElementById('articles');
+                articles.forEach(article => {
+                    const articleElem = document.createElement('article');
+                    //articleElem.innerHTML = `<h2>${article.title}</h2>${article.content}`;
+                    articleElem.innerHTML = `${article.content}`;
+                    container.appendChild(articleElem);
+                });
+            } catch (err) {
+                console.error("Failed to load articles:", err);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadArticles);
+    </script>
 </body>
 </html>

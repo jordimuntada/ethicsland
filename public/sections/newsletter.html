@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter - Ethics Land</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        function shareContent() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Newsletter - Ethics Land',
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                })
+                .catch(console.error);
+            } else {
+                alert('Your browser does not support the share API. Please copy the URL manually.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            
+            
+        <!--
+            <div id="homeButtonContainer">
+                <button onclick="window.location.href='home.html';" id="homeButton">Home</button>
+            </div>
+        -->
+            <div id="shareButtonContainer">
+                <button onclick="shareContent()">Share</button>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h1 class="newsletter-title">Newsletter</h1>
+        <p class="intro">Become a member of <strong>Ethics Land Newsletter</strong></p>
+    
+        <div class="content">
+            <p>Are you preoccupied by the exploitation of animals? Are you onto the ethics that animals are not there for us? Want to receive my writings to your email?</p>
+            <p>Subscribe to my newsletter and feel my thoughts through my words monthly.</p>
+            
+            <p>By joining me, you’ll enjoy a host of exclusive benefits:</p>
+            <ul class="benefits-list">
+                <li><strong>Stay Tuned:</strong> Receive the latest writings, not only about animal rights but also about other topics related to psychology, emotional and animal-related issues.</li>
+                <li><strong>Make a Difference:</strong> Get involved in my writings by suggesting topics, ideas, and directions.</li>
+                <li><strong>Inspiration:</strong> Discover heartwarming stories, ethical living tips, and inspiring journeys that will motivate you to make more compassionate choices every day.</li>
+                <li><strong>Connect:</strong> Engage with a community of like-minded individuals who share the same values and passion for ethical living and who want to create more value in this world.</li>
+            </ul>
+    
+            <p>It’s easy to join! Just enter your email address below and hit subscribe. Be part of the change you wish to see in the world.</p>
+            <p>Join us today, and together, let’s create a fairer, kinder, and ethical future for all.</p>
+            <p>Don’t miss out on your chance to make a positive impact. Subscribe now and be a force for good!</p>
+        </div>
+    
+        <form id="newsletterForm">
+            <div class="form-group">
+                <label for="email">Subscribe to my newsletter!</label><br>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
+                <label for="privacyPolicy">I accept the privacy policy</label>
+            </div>
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Ethics Land. All rights reserved.</p>
+    </footer>
+<!-- <script src="script.js"></script>
+ -->
+    <script>
+        
+
+         document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('newsletterForm');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            var email = document.getElementById('email').value;
+            console.log(email);
+            const url = "https://api.gateway360.com/api/3.0/sms/send";
+            const now = new Date();
+            const sendAt = now.toISOString().replace('T', ' ').substring(0, 19);
+        // Your JSON data
+            const data = {
+                "api_key": "8e9b359bf09d45c882896f86c38c3ac2",
+                "report_url": "http://ethics.land/callback/script",
+                "concat": 1,
+                "messages": [
+                    {
+                        "from": "ETHICS LAND",
+                        "to": "0034626381615",
+                        "text": `Hi George, That's a new subscriber's email: ${$email}`,
+                        "send_at": sendAt
+                        },
+                    
+                ]
+            };
+            // Simulating sending the email to your server, which would then send the SMS.
+            // Replace 'YOUR_SERVER_ENDPOINT' with the endpoint on your server that handles SMS sending.
+            fetch('/send-sms', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                //body: JSON.stringify({email: email}),
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Email sent as SMS successfully:', data);
+                alert('Thank you for subscribing! Please check your SMS messages.');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error processing your subscription.');
+            });
+        });
+    });
+        </script>
+
+
+</body>
+</html>

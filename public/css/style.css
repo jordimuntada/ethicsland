@@ -1,72 +1,4 @@
-/*body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    line-height: 1.6;
-}
 
-article {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-#header-logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%; /* Adjust as needed */
-/*}
-
-#top-menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-#top-menu li {
-    float: left;
-}
-
-#top-menu li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-#top-menu li a:hover {
-    background-color: #111;
-}
-
-#subscription-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-#subscription-form input[type="email"] {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 300px;
-}
-
-#subscription-form button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-}
-*/
-/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -216,4 +148,227 @@ footer {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+/* Code for Home button */
+#HomeButtonContainer {
+    position: fixed;
+    top: 20px;   /* Distance from bottom */
+    right: 40px;    /* Distance from right */
+    z-index: 1000;  /* Ensures the button stays above other elements */
+}
+
+#HomeButtonContainer button {
+    /* Style your button here */
+    padding: 10px;
+    background-color: black; /* blue; */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Newsletter button code for a button placed to the left of the Share button */
+#NewsletterButtonContainer {
+    position: fixed;
+    top: 20px;   /* Distance from top, aligned with the Share button */
+    right: 100px;  /* Distance from right - adjusted to place it to the left of the Share button */
+    z-index: 1000;  /* Ensures the button stays above other elements */
+}
+
+#NewsletterButtonContainer button {
+    /* Mimicking the style of the Share button */
+    padding: 10px;
+    background-color: black; /* or any other color to distinguish it from the Share button, if needed */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* NEWSLETTER NEW CODE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+#homeButton {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type=email] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+input[type=checkbox] {
+    margin-right: 10px;
+}
+
+button.subscribe-btn {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* More code added */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.article-index {
+    flex: 1;
+    min-width: 200px; /* Adjust based on content */
+    margin-right: 20px;
+    padding: 10px;
+}
+
+.content {
+    flex: 3;
+    padding: 20px;
+}
+
+/* Rest of the styles remain unchanged */
+
+@media screen and (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .article-index {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+/* Improved form and button styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type=email], button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* More code for Newsletter */
+.newsletter-container {
+    background-color: #f9f9f9; /* Light background to distinguish the section */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    max-width: 800px; /* Adjust based on your design */
+    margin: 20px auto; /* Centering */
+}
+
+.newsletter-title {
+    color: #007bff; /* A color that stands out */
+    text-align: center; /* Center title */
+    margin-bottom: 15px; /* Spacing below the title */
+}
+
+.intro, .content p, .benefits-list {
+    margin-bottom: 15px; /* Consistent spacing */
+}
+
+.benefits-list li {
+    margin-bottom: 10px; /* Spacing between list items */
+}
+
+/* Enhance the list appearance */
+.benefits-list {
+    list-style-type: disc; /* Or choose another style that fits */
+    padding-left: 20px; /* Indent list items */
+}
+
+/* Additional styles for the form, buttons, etc., can be added here */
+/* Article link appearance */
+.article-link {
+    color: inherit; /* Inherits the color from the parent element, useful if your h1 isn't black */
+    text-decoration: none; /* Removes the underline */
+}
+
+.article-link:hover, .article-link:focus {
+    text-decoration: underline; /* Optional: Adds underline on hover for visual feedback */
 }
