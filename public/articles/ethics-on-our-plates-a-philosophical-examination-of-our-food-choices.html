@@ -9,7 +9,7 @@
         function shareContent() {
             if (navigator.share) {
                 navigator.share({
-                    title: 'Ethics on Our Plates: A Philosophical Examination of Our Food Choices - Ethics Land',
+                    title: document.title,
                     url: window.location.href
                 }).then(() => {
                     console.log('Thanks for sharing!');
@@ -19,9 +19,22 @@
                 alert('Your browser does not support the share API. Please copy the URL manually.');
             }
         }
+        function redirectToNewsletter() {
+            // Construct the URL for the newsletter page
+            var newsletterUrl = '../sections/newsletter.html';
+
+            // Redirect the user to the newsletter page
+            window.location.href = newsletterUrl;
+        }
     </script>
 </head>
 <body>
+    <div id="shareButtonContainer">
+        <button onclick="shareContent()">Share</button>
+    </div>
+    <div id="NewsletterButtonContainer">
+        <button onclick="redirectToNewsletter()">Newsletter</button>
+    </div>
     <header>
         <div class="header-content">
             <h1><a href="articles/ethics-on-our-plates-a-philosophical-examination-of-our-food-choices.html" class="article-link">Ethics on Our Plates: A Philosophical Examination of Our Food Choices</a></h1>
@@ -32,7 +45,7 @@
         </div>
     </header>
     <article>
-        <img src="images/ethics-on-our-plates-a-philosophical-examination-of-our-food-choices.webp" alt="Ethical Eating" style="width:50%; max-width:600px; height:auto; display:block; margin:0 auto; padding-bottom: 50px">
+        <img src="../images/ethics-on-our-plates-a-philosophical-examination-of-our-food-choices.webp" alt="Ethical Eating" style="width:50%; max-width:600px; height:auto; display:block; margin:0 auto; padding-bottom: 50px">
 
         <h2>Introduction</h2>
         <p>As a moral philosopher, my aim is to delve into the ethical dimensions of our everyday choices. Today, I turn again my attention to our diets – a fundamental aspect of our lives that raises profound ethical questions, particularly concerning the treatment of animals and the impact of our choices on the environment.</p>

@@ -9,7 +9,7 @@
         function shareContent() {
             if (navigator.share) {
                 navigator.share({
-                    title: 'Reconsidering the Trend of Embracing Ancestral Lifestyles: A Call for Moral Values',
+                    title: document.title,
                     url: window.location.href
                 }).then(() => {
                     console.log('Thanks for sharing!');
@@ -19,9 +19,22 @@
                 alert('Your browser does not support the share API. Please copy the URL manually.');
             }
         }
+        function redirectToNewsletter() {
+            // Construct the URL for the newsletter page
+            var newsletterUrl = '../sections/newsletter.html';
+
+            // Redirect the user to the newsletter page
+            window.location.href = newsletterUrl;
+        }
     </script>
 </head>
 <body>
+    <div id="shareButtonContainer">
+        <button onclick="shareContent()">Share</button>
+    </div>
+    <div id="NewsletterButtonContainer">
+        <button onclick="redirectToNewsletter()">Newsletter</button>
+    </div>
     <header>
         <div class="header-content">
             <h1><a href="articles/reconsidering-ancestral-lifestyles" class="article-link">Reconsidering the Trend of Embracing Ancestral Lifestyles: A Call for Moral Values</a></h1>
