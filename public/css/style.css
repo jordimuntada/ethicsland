@@ -372,3 +372,59 @@ button:hover {
 .article-link:hover, .article-link:focus {
     text-decoration: underline; /* Optional: Adds underline on hover for visual feedback */
 }
+
+
+/* Share and newsletter buttons for each article */
+/* Code for Share button */
+#shareArticleButtonContainer {
+    padding: 10px;
+    margin: 10px;
+}
+
+#shareArticleButtonContainer button {
+    /* Style your button to look like a link */
+    background-color: transparent; /* Remove background */
+    color: blue; /* Typical link color */
+    border: none;
+    border-radius: 0; /* Links typically don't have border radius */
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+    text-decoration: underline; /* Underline to mimic link appearance */
+    font-size: 16px
+}
+
+/* Newsletter button code for a button placed to the left of the Share button */
+#NewsletterArticleButtonContainer {
+    padding: 10px;
+    margin: 10px;
+}
+
+#NewsletterArticleButtonContainer button {
+    /* Mimicking the style of the Share button */
+    background-color: transparent; /* Or any other styling to distinguish it */
+    color: blue; /* Standard link color */
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+    text-decoration: underline; /* Underline to mimic link appearance */
+    font-size: 16px
+
+}
+
+.inline-elements {
+    display: flex; /* Activates Flexbox layout for children */
+    align-items: center; /* Aligns children vertically in the center */
+    justify-content: space-between; /* Optional: Adjusts space between children */
+}
+
+.inline-elements > * {
+    margin-right: 10px; /* Adds space to the right of each child */
+}
+
+/* Remove margin for the last child to avoid unnecessary spacing at the end */
+.inline-elements > :last-child {
+    margin-right: 0;
+}

@@ -4,6 +4,11 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 const fs = require('fs').promises;
 
+//const fs = require('fs').promises;
+
+const cheerio = require('cheerio'); // Assuming you're using Cheerio for HTML parsing
+
+
 require('dotenv').config();
 
 const port = 3000;
@@ -65,14 +70,45 @@ app.post('/send-sms', async (req, res) => {
 app.get('/api/articles', async (req, res) => {
     try {
         const files = await fs.readdir(articlesDirectory);
-        const articles = await Promise.all(files.map(async (file) => {
+        const articlesWithDates = await Promise.all(files.map(async (file) => {
             const filePath = path.join(articlesDirectory, file);
             const content = await fs.readFile(filePath, 'utf8');
+            const $ = cheerio.load(content);
+            const dateText = $('#publication-date').text().replace('Published on ', '');
+            const publicationDate = new Date(dateText);
+
             return {
-                title: file.replace('.html', '').replace(/_/g, ' '),
-                content: content
+                file,
+                publicationDate,
+                content,
             };
         }));
+
+        // Sort articles by publication date
+        //articlesWithDates.sort((a, b) => a.publicationDate - b.publicationDate);
+        // Sort articles by publication date, placing those without a date at the end
+        articlesWithDates.sort((a, b) => {
+            // Check if either article lacks a valid publication date (Invalid Date)
+            const isADateInvalid = isNaN(a.publicationDate.getTime());
+            const isBDateInvalid = isNaN(b.publicationDate.getTime());
+
+            if (isADateInvalid && !isBDateInvalid) {
+                return 1; // a should come after b
+            } else if (!isADateInvalid && isBDateInvalid) {
+                return -1; // a should come before b
+            } else {
+                // If both dates are valid or both are invalid, compare them normally
+                return  b.publicationDate - a.publicationDate;
+            }
+        });
+
+
+        // Map sorted articles to their content, formatting titles
+        const articles = articlesWithDates.map(({ file, content }) => ({
+            title: file.replace('.html', '').replace(/_/g, ' '),
+            content,
+        }));
+
         res.json(articles);
     } catch (err) {
         console.error("Could not read the articles directory.", err);
