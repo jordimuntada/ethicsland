@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be like Batman, but with your food</title>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@jordimuntada">
+    <meta name="twitter:title" content="Be like Batman, but with your food">
+    <meta name="twitter:description" content="Be Like Batman: Making Heroic Choices with Your Food">
+    <meta name="twitter:image" content="../images/logo.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        function shareContent() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Be like Batman, but with your food',
+                    text: 'Be Like Batman: Making Heroic Choices with Your Food',
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                })
+                .catch(console.error);
+            } else {
+                alert('Your browser does not support the share API. Please copy the URL manually.');
+            }
+        }
+
+        function redirectToNewsletter() {
+            var newsletterUrl = '/newsletter.html';
+            window.location.href = newsletterUrl;
+        }
+    </script>
+</head>
+<body>
+    <div id="shareButtonContainer">
+        <button onclick="shareContent()">Share</button>
+    </div>
+    <div id="NewsletterButtonContainer">
+        <button onclick="redirectToNewsletter()">Newsletter</button>
+    </div>
+    <header>
+        <div class="header-content">
+            <h1><a href="articles/be-like-batman.html" class="article-link">Be like Batman, but with your food</a></h1>
+            <p id="publication-date">Published on March 12, 2024</p>
+            <div id="shareButtonContainer">
+                <button onclick="shareContent()">Share</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <article>
+            <p>Nobility, a quality so glorified yet practiced by so few, is not found in the grand feats of our lives but rather in the minutiae of our daily actions. These seemingly small acts are not trivial but are, paradoxically, grand gestures of character. True nobility is exercised in the ordinary moments, turning everyday decisions into opportunities for profound kindness.</p>
+
+            <p>From the comfort of our homes, we have the power to practice a form of kindness that is bold and strong, distinct from the superficial kindness that is all too common. One noble act of kindness we can perform, starting in our kitchens, is choosing not to consume animals. This decision might not stem from a sudden distaste for the flavors or textures of meat and animal products but rather from a deeper sense of justice.</p>
+
+            <p>Just as Batman sacrifices his personal life to fight crime, we can choose to reject animal products to combat unnecessary suffering. This choice represents an optional suffering that continues because it is funded by consumers without obligation.</p>
+
+            <p>However, there is a significant difference between the sacrifices made by Batman and those we are asked to consider. Batman sacrifices his personal life in exchange for his abilities and dedication to defeating crime, while we are asked to forego little to nothing. The flavors and textures we crave and feel we cannot give up are now replicable through the use of plants.</p>
+
+            <p>Our current level of technology allows us to imitate many of the flavors and textures found in animal products with plant-based alternatives. For instance, canned tuna can now be perfectly mimicked with 100% similarity, showcasing the potential for change without sacrificing taste or texture.</p>
+
+            <p>Thus, embarking on this journey of nobility does not risk our lives or physical health. By choosing not to purchase animal products, we can achieve a greater impact than Batman in his entire lifetime. This comparison highlights the power of individual choices and the profound nobility in opting for compassion and justice in our daily lives.</p>
+
+            <p>As we reflect on the true meaning of nobility, let us recognize that it lies not in grandiose acts but in the simple, everyday decisions we make. Choosing kindness, especially when it involves no sacrifice on our part, is perhaps the most noble act of all.</p>
+
+        </article>
+        <div class="inline-elements">
+
+            <a href="https://twitter.com/intent/tweet?text=I'm%20sharing%20my%20thoughts%20on%20this%20article%20from%20https%3A%2F%2Fethics.land%20%23Ethics%20%23CognitiveDissonance" target="_blank">Reply on Twitter</a>
+
+        
+            <div id="shareArticleButtonContainer">
+                <button onclick="shareContent()">Share This Article</button>
+            </div>
+            <div id="NewsletterArticleButtonContainer">
+                <button onclick="redirectToNewsletter()">Subscribe to Newsletter</button>
+            </div>
+        </div>
+
+    </main>
+   
+</body>
+</html>
